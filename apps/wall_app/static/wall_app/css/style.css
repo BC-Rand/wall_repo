@@ -1,0 +1,40 @@
+* {
+    margin:0;
+    padding:0;
+}
+#header {
+    height: 30px;
+    border: 1px solid black;
+
+}
+#header_element {
+    display:inline-block;
+    vertical-align: top;
+    margin: 5px 0 0 5px;
+}
+#header_user {
+    display:inline-block;
+    vertical-align: top;
+    margin: 5px 0 0 75%;
+}
+#logreg {
+    display: inline-block;
+    padding: 10px 15px 15px 15px;
+    border:1px solid black;
+    margin:25px 0 0 5%;
+}
+#logreg label {
+    margin-top: 5px;
+}
+#submit_button {
+    margin:5px 0 0 50%;
+}
+td {
+    padding-left:5px;
+}
+#message_div {
+    border: 1px solid black;
+}
+#message_from {
+    font-size:16px;
+}

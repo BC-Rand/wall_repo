@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'wall_app/css/style.css' %}">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <a href="/dashboard" id="header_element">Dashboard</a>
+                {% if 'user' in request.session %}
+                    <a href="/users/show/{{ request.session.user }}" id="header_element">Profile</a>
+                    <a href="/logout" id="header_user">Log off</a>
+                {% else %}
+                    <a id="header_element" href="/">Home</a>
+                    <a href="/login" id="header_user">Sign in</a>
+                {% endif %}    
+            </div>
+            <!-- Content under here -->
+            <table style="margin: 25px 0 0 5%;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Created At</th>
+                        <th style="padding-left:5px;">Access Level</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.first_name}} {{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.created_at }}</td>
+                        <td>{{ user.user_level.level }}</td>
+                        <td><a href="/users/show/{{ user.id }}">View</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+        </div>
+    </body>
+</html>
